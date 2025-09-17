@@ -1,0 +1,76 @@
+
+/* Basic styling for the body to center the content */
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;   
+    overflow-y: auto;     
+    box-sizing: border-box;
+}
+
+/* Styling for the informational container */
+#info-container {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Styling for the Aladin Lite container */
+#aladin-lite-div {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #000;
+}
+
+/* Popup styling, initially hidden */
+#popup {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 0;
+    display: none; /* Hidden by default */
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Styling for the menu box containing the sound toggle button */
+#menu-box {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Styling for the sound toggle button */
+#sound-toggle {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+
+

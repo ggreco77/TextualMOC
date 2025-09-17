@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Large Magellanic Cloud Hunt</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+</head>
+<body>
+    <!-- Game instructions -->
+    <h2>Hunting for Celestial Objects</h2>
+    <div id="instructions">
+        Your task is to find the Large Magellanic Cloud (LMC) within the sky among the objects indicated 
+        by the magenta-colored MOCs. Press the "Start Game" button to begin playing.
+        If you have difficulty finding it, use the search button at the top to navigate directly to the LMC's position.
+    </div>
+    
+    <div id="aladin-lite-div">
+        <div id="popup">test play with textual moc</div>
+    </div>
+    <div id="controls">
+        <button id="start-game">Start Game</button>
+    </div>
+    <div id="game-status">Press "Start Game" to begin</div>
+    <div id="score">Score: 0</div>
+    <div id="timer">Time remaining: <span id="time">30</span>s</div>
+    <div id="countdown"></div>
+    <audio id="success-sound" preload="auto">
+        <source src="https://cdn.jsdelivr.net/gh/ggreco77/TextualMOC@main/AladinGame/sounds/won.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="error-sound" preload="auto">
+        <source src="https://cdn.jsdelivr.net/gh/ggreco77/TextualMOC@main/AladinGame/sounds/lost.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="js/script.js"></script>
+</body>
+</html>

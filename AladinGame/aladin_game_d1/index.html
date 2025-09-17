@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aladin Lite with Popup and Context Menu</title>
+    <!-- Include the external CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Include the Aladin Lite JavaScript library -->
+    <script src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+</head>
+<body>
+
+
+
+    <!-- Informational container explaining the functionality -->
+    <div id="info-container">
+        <h2>Textual MOC Application with Aladin Lite</h2>
+        <p>
+           This application demonstrates a simple example of using Textual MOCs in an interactive page powered by Aladin Lite.
+           Hovering over the magenta-colored MOC will open a popup at the bottom displaying the information contained in the textual MOC.
+           A button allows you to enable sounds that will be played when the cursor enters or exits the region defined by the MOC.
+        </p>
+    </div>
+    <!-- Container for the Aladin Lite viewer -->
+    <div id="aladin-lite-div"></div>
+
+    <!-- Popup that shows information when the cursor is inside the MOC region -->
+    <div id="popup">You are inside the MOC region!</div>
+
+    <!-- Menu box with a button to toggle sound effects -->
+    <div id="menu-box">
+        <button id="sound-toggle">Enable Sounds</button>
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="enter-sound" preload="auto">
+        <source src="https://cdn.jsdelivr.net/gh/ggreco77/TextualMOC@main/AladinGame/sounds/enter.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="exit-sound" preload="auto">
+        <source src="https://cdn.jsdelivr.net/gh/ggreco77/TextualMOC@main/AladinGame/sounds/exit.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Include the external JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+</html>

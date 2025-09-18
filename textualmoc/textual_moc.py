@@ -128,7 +128,7 @@ class TextualMOC:
                     # Directly use the provided text as custom text
                     text = text_file_path
 
-                self.moc_data['custom_text'] = text
+                self.moc_data['text'] = text
             else:
                 raise ValueError("Invalid text_file_path. Expected a string URL, file path, or direct text.")
 
@@ -149,7 +149,7 @@ class TextualMOC:
 
     def embedding_from_custom_text(self, embeddings_model='nomic-embed-text'):
         """
-        Reads the 'custom_text' key from the loaded text-based MOC, generates embeddings 
+        Reads the 'text' key from the loaded text-based MOC, generates embeddings 
         using LangChain with OllamaEmbeddings (default model: 'nomic-embed-text'), 
         and stores the resulting numerical embedding along with the applied model.
 
@@ -159,14 +159,14 @@ class TextualMOC:
         """
     
         # Check that there is custom text
-        if 'custom_text' in self.moc_data:
-            custom_text = self.moc_data['custom_text']
+        if 'text' in self.moc_data:
+            text = self.moc_data['text']
         
             # Create the embeddings instance
             embeddings = OllamaEmbeddings(model=embeddings_model)
         
             # Generate the embedding for the text
-            embedding_vector = embeddings.embed_query(custom_text)
+            embedding_vector = embeddings.embed_query(text)
         
             # Save embedding and model in MOC
             self.moc_data['embedding'] = embedding_vector
@@ -174,7 +174,7 @@ class TextualMOC:
         
             print("Embedding added to moc_data using the model:", embeddings_model)
         else:
-            print("No 'custom_text' found in MOC data.")
+            print("No 'text' found in MOC data.")
 
 
     def load_textual_moc(self, file_path):
@@ -253,7 +253,7 @@ class TextualMOC:
         """
         Prints the custom text stored in the MOC data.
         """
-        print(f"Custom Text: {self.moc_data.get('custom_text', 'No custom text available.')}")
+        print(f"Custom Text: {self.moc_data.get('text', 'No custom text available.')}")
     
     def render(self, file_path, show_text=True, show_area=True, show_multimedia=True, 
                show_metadata=True, show_image=True, show_embedding=False, plot_embedding=False):
@@ -324,7 +324,7 @@ class TextualMOC:
 
         # Create a widget to display the text and link
         text_area = widgets.Textarea(
-            value=self.moc_data.get('custom_text', ''),
+            value=self.moc_data.get('text', ''),
             placeholder='Encapsulated text',
             description='Text:',
             disabled=True,
@@ -387,10 +387,10 @@ class TextualMOC:
         Parameters:
         new_text (str): The new text to append to the custom text field.
         """
-        if 'custom_text' in self.moc_data:
-            self.moc_data['custom_text'] += "\n" + new_text
+        if 'text' in self.moc_data:
+            self.moc_data['text'] += "\n" + new_text
         else:
-            self.moc_data['custom_text'] = new_text
+            self.moc_data['text'] = new_text
 
         self.moc_data['last_text_update'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 

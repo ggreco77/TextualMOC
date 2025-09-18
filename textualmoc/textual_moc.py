@@ -1,11 +1,11 @@
 """
-textual_moc.py — Modulo importabile per la classe TextualMOC
-Nessuna inizializzazione automatica all'import.
+textual_moc.py — Importable module for the TextualMOC class
+No automatic initialization on import.
 
-Uso rapido:
+Quick start:
     from textual_moc import TextualMOC
     tm = TextualMOC()
-    tm.add_text_media_image("Ciao MOC!", multimedia_url="https://example.com", hips2fits_image="https://example.com/img.jpg")
+    tm.add_text_media_image("Hello MOC!", multimedia_url="https://example.com", hips2fits_image="https://example.com/img.jpg")
     tm.save("moc.json")
 """
 

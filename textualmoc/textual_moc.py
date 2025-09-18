@@ -5,7 +5,7 @@ No automatic initialization on import.
 Quick start:
     from textual_moc import TextualMOC
     tm = TextualMOC()
-    tm.add_text_media_image("Hello MOC!", multimedia_url="https://example.com", hips2fits_image="https://example.com/img.jpg")
+    tm.add_text_media_image("Hello MOC!", multimedia_url="https://example.com", image="https://example.com/img.jpg")
     tm.save("moc.json")
 """
 
@@ -102,7 +102,7 @@ class TextualMOC:
             self.moc_data['annotated_cells'][order] = {}
         self.moc_data['annotated_cells'][order][pixel_str] = text
 
-    def add_text_media_image(self, text_file_path="", multimedia_url="", hips2fits_image=""):
+    def add_text_media_image(self, text_file_path="", multimedia_url="", image=""):
         """
         Adds custom text, a multimedia link, and an image link to the MOC's JSON representation.
         Reads from a file or fetches content from a URL.
@@ -140,7 +140,7 @@ class TextualMOC:
 
             # Validate image URL
             if isinstance(image, str) and image.startswith(('http://', 'https://')):
-                self.moc_data['hips2fits_image'] = hips2fits_image
+                self.moc_data['image'] = image
             else:
                 print("Invalid image URL provided. URL should start with http:// or https://")
 

@@ -8,6 +8,9 @@ Companion tutorial to the A&C article: [Encapsulating textual contents into a MO
 
 **Live demos:** [Demo 1](https://ggreco77.github.io/TextualMOC/AladinGame/aladin_game_d1/) · [Demo 2](https://ggreco77.github.io/TextualMOC/AladinGame/aladin_game_d2/)
 
+- `tuto1_TextualMOC.ipynb` -  minimal end-to-end example that builds a Textual MOC from a Space MOC.
+- `tuto2_TextualMOC.ipynb` extends the basic workflow with semantic enrichment (e.g., keywords/embeddings)  so the MOC can be used in GenAI pipelines (retrieval/conditioning).
+
 
  
 

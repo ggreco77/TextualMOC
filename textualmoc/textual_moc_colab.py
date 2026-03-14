@@ -309,20 +309,19 @@ class TextualMOC:
             print(f"An error occurred: {e}")
 
     def render_ipyaladin(self, aladin_instance=None, color="magenta", alpha=0.8, survey="P/Mellinger/color", fov=5):
-        """Visualize the MOC in an Aladin viewer with defined color, transparency, and HiPS and fov"""
+        """Visualize the MOC in an Aladin viewer - Colab compatible"""
+        import asyncio
 
         if not self.moc:
             print("No MOC data available to display.")
             return
 
+        # Sempre ricrea il widget per evitare duplicati
         if aladin_instance is None:
-            if self.ipyaladin is None:
-                self.ipyaladin = Aladin(target="Sgr A*", fov=fov, survey=survey)
+            self.ipyaladin = Aladin(target="Sgr A*", fov=fov, survey=survey)
             viewer = self.ipyaladin
         else:
             viewer = aladin_instance
-
-        viewer.add_moc(self.moc, color=color, alpha=alpha, fill=True, edge=True, adaptativeDisplay=False)
 
         text_area = widgets.Textarea(
             value=self.moc_data.get('text', ''),
@@ -348,7 +347,14 @@ class TextualMOC:
 
         combined = widgets.VBox([viewer, text_area, multimedia_button])
         display(combined)
-        
+
+        # Aggiungi il MOC dopo un ritardo per dare tempo al widget di renderizzarsi
+        async def _add_moc_delayed():
+            await asyncio.sleep(1.5)
+            viewer.add_moc(self.moc, color=color, alpha=alpha, fill=True, edge=True, adaptativeDisplay=False)
+
+        asyncio.ensure_future(_add_moc_delayed())
+
         return combined
 
     def save(self, output_file_path):
